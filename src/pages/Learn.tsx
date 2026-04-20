@@ -327,19 +327,19 @@ export default function Learn() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-purple-50">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar - Course Outline */}
           <div className="lg:w-1/4">
             <div className="bg-white rounded-lg shadow-md p-4 sticky top-4">
-              <h2 className="text-lg font-semibold text-gray-800 mb-4">{course.title}</h2>
+              <h2 className="text-lg font-semibold text-purple-900 mb-4">{course.title}</h2>
               <div className="space-y-2">
                 {lessons.map((lesson) => (
                   <a 
                     key={lesson.id} 
                     href={`/learn/${currentCourseId}/${lesson.id}`}
-                    className={`flex items-center p-3 rounded-md transition-colors ${lesson.id === currentLessonId ? 'bg-blue-50 border-l-4 border-blue-600' : 'hover:bg-gray-50'}`}
+                    className={`flex items-center p-3 rounded-md transition-colors ${lesson.id === currentLessonId ? 'bg-purple-100 border-l-4 border-purple-500' : 'hover:bg-purple-50'}`}
                   >
                     <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3">
                       {lesson.completed ? '✅' : lesson.type === 'video' ? '🎥' : '✏️'}
@@ -370,13 +370,13 @@ export default function Learn() {
               
               {/* Lesson Content */}
               <div className="p-6">
-                <h1 className="text-2xl font-bold text-gray-800 mb-4">{currentLesson.title}</h1>
+                <h1 className="text-2xl font-bold text-purple-900 mb-4">{currentLesson.title}</h1>
                 
                 {/* Progress Bar */}
                 <div className="mb-6">
                   <div className="flex justify-between mb-2">
-                    <span className="text-sm text-gray-600">学习进度</span>
-                    <span className="text-sm font-medium text-gray-800">{progress}%</span>
+                    <span className="text-sm text-purple-700">学习进度</span>
+                    <span className="text-sm font-medium text-purple-900">{progress}%</span>
                   </div>
                   <input
                     type="range"
@@ -384,7 +384,7 @@ export default function Learn() {
                     max="100"
                     value={progress}
                     onChange={handleProgressChange}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                    className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer"
                   />
                 </div>
                 
@@ -395,7 +395,7 @@ export default function Learn() {
                 <div className="flex justify-between items-center">
                   <button
                     onClick={handleMarkComplete}
-                    className={`px-4 py-2 rounded-md transition-colors ${completed ? 'bg-gray-200 text-gray-700' : 'bg-green-600 text-white'}`}
+                    className={`px-4 py-2 rounded-md transition-colors ${completed ? 'bg-purple-200 text-purple-700' : 'bg-purple-600 text-white'}`}
                   >
                     {completed ? '已完成' : '标记为完成'}
                   </button>
@@ -403,7 +403,7 @@ export default function Learn() {
                     {currentLessonId > 1 && (
                       <a 
                         href={`/learn/${currentCourseId}/${currentLessonId - 1}`}
-                        className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors"
+                        className="px-4 py-2 bg-purple-200 text-purple-700 rounded-md hover:bg-purple-300 transition-colors"
                       >
                         上一课
                       </a>
@@ -411,7 +411,7 @@ export default function Learn() {
                     {currentLessonId < lessons.length && (
                       <a 
                         href={`/learn/${currentCourseId}/${currentLessonId + 1}`}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                        className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500 transition-colors"
                       >
                         下一课
                       </a>
