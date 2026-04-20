@@ -128,7 +128,7 @@ export default function CourseDetail() {
   const lessons = courseLessons[courseId] || defaultLessons
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-purple-50">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Course Info */}
@@ -143,21 +143,21 @@ export default function CourseDetail() {
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
-                  <span className={`px-3 py-1 text-sm rounded-full ${course.difficulty === '初级' ? 'bg-green-100 text-green-800' : course.difficulty === '中级' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'}`}>
+                  <span className={`px-3 py-1 text-sm rounded-full ${course.difficulty === '初级' ? 'bg-purple-100 text-purple-800' : course.difficulty === '中级' ? 'bg-purple-200 text-purple-900' : 'bg-purple-300 text-purple-900'}`}>
                     {course.difficulty}
                   </span>
-                  <span className="text-sm text-gray-600">{course.duration} 小时</span>
+                  <span className="text-sm text-purple-700">{course.duration} 小时</span>
                 </div>
-                <h1 className="text-2xl font-bold text-gray-800 mb-4">{course.title}</h1>
-                <p className="text-gray-600 mb-6">{course.description}</p>
+                <h1 className="text-2xl font-bold text-purple-900 mb-4">{course.title}</h1>
+                <p className="text-purple-700 mb-6">{course.description}</p>
                 <div className="flex space-x-4">
                   <a 
                     href={`/learn/${course.id}/1`} 
-                    className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                    className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-600 transition-colors"
                   >
                     开始学习
                   </a>
-                  <button className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors">
+                  <button className="px-6 py-2 bg-purple-100 text-purple-700 rounded-md hover:bg-purple-200 transition-colors">
                     加入收藏
                   </button>
                 </div>
@@ -166,17 +166,17 @@ export default function CourseDetail() {
             
             {/* Course Curriculum */}
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">课程大纲</h2>
+              <h2 className="text-xl font-bold text-purple-900 mb-4">课程大纲</h2>
               <div className="space-y-4">
                 {lessons.map((lesson) => (
-                  <div key={lesson.id} className="flex items-center p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors">
-                    <div className="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-600 rounded-full mr-4">
+                  <div key={lesson.id} className="flex items-center p-3 border border-purple-100 rounded-md hover:bg-purple-50 transition-colors">
+                    <div className="w-10 h-10 flex items-center justify-center bg-purple-100 text-purple-600 rounded-full mr-4">
                       {lesson.type === 'video' ? '🎥' : '✏️'}
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-medium text-gray-800">{lesson.title}</h3>
+                      <h3 className="font-medium text-purple-900">{lesson.title}</h3>
                     </div>
-                    <div className="text-sm text-gray-600">{lesson.duration} 分钟</div>
+                    <div className="text-sm text-purple-700">{lesson.duration} 分钟</div>
                   </div>
                 ))}
               </div>
@@ -186,39 +186,39 @@ export default function CourseDetail() {
           {/* Sidebar */}
           <div className="lg:w-1/3">
             <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">课程信息</h3>
+              <h3 className="text-lg font-semibold text-purple-900 mb-4">课程信息</h3>
               <ul className="space-y-3">
                 <li className="flex justify-between">
-                  <span className="text-gray-600">难度</span>
-                  <span className="font-medium text-gray-800">{course.difficulty}</span>
+                  <span className="text-purple-700">难度</span>
+                  <span className="font-medium text-purple-900">{course.difficulty}</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-gray-600">时长</span>
-                  <span className="font-medium text-gray-800">{course.duration} 小时</span>
+                  <span className="text-purple-700">时长</span>
+                  <span className="font-medium text-purple-900">{course.duration} 小时</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-gray-600">章节数</span>
-                  <span className="font-medium text-gray-800">{lessons.length}</span>
+                  <span className="text-purple-700">章节数</span>
+                  <span className="font-medium text-purple-900">{lessons.length}</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-gray-600">练习数</span>
-                  <span className="font-medium text-gray-800">{lessons.filter(l => l.type === 'exercise').length}</span>
+                  <span className="text-purple-700">练习数</span>
+                  <span className="font-medium text-purple-900">{lessons.filter(l => l.type === 'exercise').length}</span>
                 </li>
               </ul>
             </div>
             
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">讲师信息</h3>
+              <h3 className="text-lg font-semibold text-purple-900 mb-4">讲师信息</h3>
               <div className="flex items-center mb-4">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mr-4">
                   👨‍🏫
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-800">张老师</h4>
-                  <p className="text-sm text-gray-600">数据分析专家</p>
+                  <h4 className="font-medium text-purple-900">张老师</h4>
+                  <p className="text-sm text-purple-700">数据分析专家</p>
                 </div>
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-purple-700">
                 拥有10年数据分析经验，曾在多家知名企业担任数据分析师，擅长Python数据分析和可视化。
               </p>
             </div>
