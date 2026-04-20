@@ -2,6 +2,14 @@
 export const courses = [
   {
     id: 1,
+    title: "Python基础课程",
+    description: "学习Python编程语言的基础知识和语法",
+    difficulty: "初级",
+    duration: 10,
+    cover_image: "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Python%20basic%20course%20cover%2C%20beginner%20friendly%20design&image_size=landscape_16_9"
+  },
+  {
+    id: 2,
     title: "Python数据分析基础",
     description: "学习Python数据分析的基本概念和工具",
     difficulty: "初级",
@@ -9,7 +17,7 @@ export const courses = [
     cover_image: "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Python%20data%20analysis%20course%20cover%2C%20clean%20modern%20design&image_size=landscape_16_9"
   },
   {
-    id: 2,
+    id: 3,
     title: "商务数据分析实战",
     description: "使用Python解决实际商务数据分析问题",
     difficulty: "中级",
@@ -17,7 +25,7 @@ export const courses = [
     cover_image: "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Business%20data%20analysis%20course%20cover%2C%20professional%20design&image_size=landscape_16_9"
   },
   {
-    id: 3,
+    id: 4,
     title: "数据可视化进阶",
     description: "学习高级数据可视化技术和工具",
     difficulty: "高级",
@@ -25,7 +33,7 @@ export const courses = [
     cover_image: "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Data%20visualization%20course%20cover%2C%20colorful%20modern%20design&image_size=landscape_16_9"
   },
   {
-    id: 4,
+    id: 5,
     title: "机器学习基础",
     description: "了解机器学习的基本原理和应用",
     difficulty: "中级",

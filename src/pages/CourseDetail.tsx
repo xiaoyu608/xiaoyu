@@ -2,7 +2,87 @@ import { useParams } from 'react-router-dom'
 import { courses } from '../data/mockData'
 
 // 模拟章节数据
-const lessons = [
+const courseLessons = {
+  1: [ // Python基础课程
+    {
+      id: 1,
+      title: "Python简介",
+      duration: 15,
+      type: "video"
+    },
+    {
+      id: 2,
+      title: "Python语法基础",
+      duration: 45,
+      type: "video"
+    },
+    {
+      id: 3,
+      title: "数据类型和变量",
+      duration: 60,
+      type: "video"
+    },
+    {
+      id: 4,
+      title: "控制流语句",
+      duration: 60,
+      type: "video"
+    },
+    {
+      id: 5,
+      title: "函数和模块",
+      duration: 45,
+      type: "video"
+    },
+    {
+      id: 6,
+      title: "实战练习",
+      duration: 90,
+      type: "exercise"
+    }
+  ],
+  2: [ // Python数据分析基础
+    {
+      id: 1,
+      title: "课程介绍",
+      duration: 15,
+      type: "video"
+    },
+    {
+      id: 2,
+      title: "Python基础回顾",
+      duration: 45,
+      type: "video"
+    },
+    {
+      id: 3,
+      title: "NumPy库入门",
+      duration: 60,
+      type: "video"
+    },
+    {
+      id: 4,
+      title: "Pandas库使用",
+      duration: 60,
+      type: "video"
+    },
+    {
+      id: 5,
+      title: "数据可视化基础",
+      duration: 45,
+      type: "video"
+    },
+    {
+      id: 6,
+      title: "实战练习",
+      duration: 90,
+      type: "exercise"
+    }
+  ]
+}
+
+// 默认章节数据
+const defaultLessons = [
   {
     id: 1,
     title: "课程介绍",
@@ -11,25 +91,25 @@ const lessons = [
   },
   {
     id: 2,
-    title: "Python基础回顾",
+    title: "课程内容概述",
     duration: 45,
     type: "video"
   },
   {
     id: 3,
-    title: "NumPy库入门",
+    title: "核心概念讲解",
     duration: 60,
     type: "video"
   },
   {
     id: 4,
-    title: "Pandas库使用",
+    title: "实践应用",
     duration: 60,
     type: "video"
   },
   {
     id: 5,
-    title: "数据可视化基础",
+    title: "总结与展望",
     duration: 45,
     type: "video"
   },
@@ -45,6 +125,7 @@ export default function CourseDetail() {
   const { id } = useParams<{ id: string }>()
   const courseId = parseInt(id || '1')
   const course = courses.find(c => c.id === courseId) || courses[0]
+  const lessons = courseLessons[courseId] || defaultLessons
 
   return (
     <div className="min-h-screen bg-gray-50">
