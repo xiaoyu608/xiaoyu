@@ -3,7 +3,7 @@ export const courses = [
   {
     id: 1,
     title: "Python基础课程",
-    description: "学习Python编程语言的基础知识和语法 - 张子瑜的课程",
+    description: "学习Python编程语言的基础知识和语法 - 张子瑜的课程 (最新部署)",
     difficulty: "初级",
     duration: 10,
     cover_image: "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Python%20basic%20course%20cover%2C%20beginner%20friendly%20design&image_size=landscape_16_9"
