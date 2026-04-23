@@ -20,3 +20,4 @@
 ### 访问地址
 - 部署地址: https://xiaoyu-c.pages.dev
 - GitHub 仓库: https://github.com/xiaoyu608/xiaoyu
+- 最新部署时间: 2026-04-23
