@@ -22,13 +22,12 @@ export default function Courses() {
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <input
-                type="text"
-                placeholder="搜索课程..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-2 bg-purple-900/50 border border-purple-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"
-                placeholderTextColor="#a78bfa"
-              />
+              type="text"
+              placeholder="搜索课程..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full px-4 py-2 bg-purple-900/50 border border-purple-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"
+            />
             </div>
             <div className="w-full md:w-48">
               <select
