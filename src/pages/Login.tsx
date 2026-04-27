@@ -21,17 +21,17 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">登录</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
+      <div className="w-full max-w-md p-8 bg-white/10 backdrop-blur-lg rounded-lg shadow-lg border border-purple-500/30">
+        <h1 className="text-2xl font-bold text-center text-purple-100 mb-6">登录</h1>
         {error && (
-          <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
+          <div className="mb-4 p-3 bg-red-900/30 text-red-300 rounded-md">
             {error}
           </div>
         )}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-purple-200 mb-1">
               邮箱
             </label>
             <input
@@ -39,12 +39,12 @@ export default function Login() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-purple-900/50 border border-purple-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"
               required
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-purple-200 mb-1">
               密码
             </label>
             <input
@@ -52,18 +52,18 @@ export default function Login() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-purple-900/50 border border-purple-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"
               required
             />
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+            className="w-full px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500 transition-colors"
           >
             登录
           </button>
           <div className="mt-4 text-center">
-            <a href="/register" className="text-blue-600 hover:underline">
+            <a href="/register" className="text-purple-300 hover:text-purple-100 transition-colors">
               没有账号？点击注册
             </a>
           </div>

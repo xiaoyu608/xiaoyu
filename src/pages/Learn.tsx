@@ -7,7 +7,6 @@ const courseLessonContent = {
   1: { // Python基础课程
     1: {
       title: "Python简介",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       content: `
         <h3>欢迎来到Python基础课程</h3>
         <p>本课程将帮助你掌握Python编程语言的基础知识和语法，为你打开编程世界的大门。</p>
@@ -24,7 +23,6 @@ const courseLessonContent = {
     },
     2: {
       title: "Python语法基础",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       content: `
         <h3>Python语法基础</h3>
         <p>在本节中，我们将学习Python的基本语法规则。</p>
@@ -43,7 +41,6 @@ print("你好，" + name)</code></pre>
     },
     3: {
       title: "数据类型和变量",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       content: `
         <h3>数据类型和变量</h3>
         <p>本节将介绍Python中的基本数据类型和变量。</p>
@@ -68,7 +65,6 @@ print("身高：", height)</code></pre>
     },
     4: {
       title: "控制流语句",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       content: `
         <h3>控制流语句</h3>
         <p>本节将学习Python中的控制流语句，包括条件语句和循环语句。</p>
@@ -93,7 +89,6 @@ while count < 5:
     },
     5: {
       title: "函数和模块",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       content: `
         <h3>函数和模块</h3>
         <p>本节将学习Python中的函数和模块。</p>
@@ -118,7 +113,6 @@ print(sqrt(16))</code></pre>
     },
     6: {
       title: "实战练习",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       content: `
         <h3>实战练习</h3>
         <p>本节将通过实际练习巩固所学知识。</p>
@@ -134,7 +128,6 @@ print(sqrt(16))</code></pre>
   2: { // Python数据分析基础
     1: {
       title: "课程介绍",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       content: `
         <h3>欢迎来到Python数据分析基础课程</h3>
         <p>本课程将帮助你掌握Python数据分析的基本概念和工具，为你打开数据分析的大门。</p>
@@ -151,7 +144,6 @@ print(sqrt(16))</code></pre>
     },
     2: {
       title: "Python基础回顾",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       content: `
         <h3>Python基础回顾</h3>
         <p>在开始数据分析之前，我们需要回顾一下Python的基础知识。</p>
@@ -174,35 +166,35 @@ const courseLessons = {
       id: 1,
       title: "Python简介",
       duration: 15,
-      type: "video",
+      type: "lesson",
       completed: true
     },
     {
       id: 2,
       title: "Python语法基础",
       duration: 45,
-      type: "video",
+      type: "lesson",
       completed: false
     },
     {
       id: 3,
       title: "数据类型和变量",
       duration: 60,
-      type: "video",
+      type: "lesson",
       completed: false
     },
     {
       id: 4,
       title: "控制流语句",
       duration: 60,
-      type: "video",
+      type: "lesson",
       completed: false
     },
     {
       id: 5,
       title: "函数和模块",
       duration: 45,
-      type: "video",
+      type: "lesson",
       completed: false
     },
     {
@@ -218,35 +210,35 @@ const courseLessons = {
       id: 1,
       title: "课程介绍",
       duration: 15,
-      type: "video",
+      type: "lesson",
       completed: true
     },
     {
       id: 2,
       title: "Python基础回顾",
       duration: 45,
-      type: "video",
+      type: "lesson",
       completed: false
     },
     {
       id: 3,
       title: "NumPy库入门",
       duration: 60,
-      type: "video",
+      type: "lesson",
       completed: false
     },
     {
       id: 4,
       title: "Pandas库使用",
       duration: 60,
-      type: "video",
+      type: "lesson",
       completed: false
     },
     {
       id: 5,
       title: "数据可视化基础",
       duration: 45,
-      type: "video",
+      type: "lesson",
       completed: false
     },
     {
@@ -265,35 +257,35 @@ const defaultLessons = [
     id: 1,
     title: "课程介绍",
     duration: 15,
-    type: "video",
+    type: "lesson",
     completed: true
   },
   {
     id: 2,
     title: "课程内容概述",
     duration: 45,
-    type: "video",
+    type: "lesson",
     completed: false
   },
   {
     id: 3,
     title: "核心概念讲解",
     duration: 60,
-    type: "video",
+    type: "lesson",
     completed: false
   },
   {
     id: 4,
     title: "实践应用",
     duration: 60,
-    type: "video",
+    type: "lesson",
     completed: false
   },
   {
     id: 5,
     title: "总结与展望",
     duration: 45,
-    type: "video",
+    type: "lesson",
     completed: false
   },
   {
@@ -317,6 +309,8 @@ export default function Learn() {
   
   const [completed, setCompleted] = useState(lessonInfo.completed)
   const [progress, setProgress] = useState(0)
+  const [code, setCode] = useState('print("Hello, World!")')
+  const [output, setOutput] = useState('')
 
   const handleMarkComplete = () => {
     setCompleted(!completed)
@@ -326,27 +320,36 @@ export default function Learn() {
     setProgress(parseInt(e.target.value))
   }
 
+  const handleCodeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCode(e.target.value)
+  }
+
+  const runCode = () => {
+    // 模拟代码执行
+    setOutput(`执行结果:\n${code.includes('print') ? code.replace('print("', '').replace('")', '') : '代码执行成功'}`)
+  }
+
   return (
-    <div className="min-h-screen bg-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar - Course Outline */}
           <div className="lg:w-1/4">
-            <div className="bg-white rounded-lg shadow-md p-4 sticky top-4">
-              <h2 className="text-lg font-semibold text-purple-900 mb-4">{course.title}</h2>
+            <div className="bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-4 sticky top-4 border border-purple-500/30">
+              <h2 className="text-lg font-semibold text-purple-100 mb-4">{course.title}</h2>
               <div className="space-y-2">
                 {lessons.map((lesson) => (
                   <a 
                     key={lesson.id} 
                     href={`/learn/${currentCourseId}/${lesson.id}`}
-                    className={`flex items-center p-3 rounded-md transition-colors ${lesson.id === currentLessonId ? 'bg-purple-100 border-l-4 border-purple-500' : 'hover:bg-purple-50'}`}
+                    className={`flex items-center p-3 rounded-md transition-colors ${lesson.id === currentLessonId ? 'bg-purple-600/30 border-l-4 border-purple-400' : 'hover:bg-white/5'}`}
                   >
-                    <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3">
-                      {lesson.completed ? '✅' : lesson.type === 'video' ? '🎥' : '✏️'}
+                    <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 bg-white/10">
+                      {lesson.completed ? '✅' : lesson.type === 'exercise' ? '✏️' : '📖'}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-sm font-medium text-gray-800">{lesson.title}</h3>
-                      <p className="text-xs text-gray-600">{lesson.duration} 分钟</p>
+                      <h3 className="text-sm font-medium text-purple-100">{lesson.title}</h3>
+                      <p className="text-xs text-purple-300">{lesson.duration} 分钟</p>
                     </div>
                   </a>
                 ))}
@@ -356,27 +359,16 @@ export default function Learn() {
           
           {/* Main Content */}
           <div className="lg:w-3/4">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              {/* Video Player */}
-              <div className="relative aspect-video bg-gray-900">
-                <iframe 
-                  src={currentLesson.videoUrl} 
-                  title={currentLesson.title} 
-                  className="w-full h-full" 
-                  frameBorder="0" 
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
+            <div className="bg-white/10 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden border border-purple-500/30">
               {/* Lesson Content */}
               <div className="p-6">
-                <h1 className="text-2xl font-bold text-purple-900 mb-4">{currentLesson.title}</h1>
+                <h1 className="text-2xl font-bold text-purple-100 mb-6">{currentLesson.title}</h1>
                 
                 {/* Progress Bar */}
                 <div className="mb-6">
                   <div className="flex justify-between mb-2">
-                    <span className="text-sm text-purple-700">学习进度</span>
-                    <span className="text-sm font-medium text-purple-900">{progress}%</span>
+                    <span className="text-sm text-purple-300">学习进度</span>
+                    <span className="text-sm font-medium text-purple-100">{progress}%</span>
                   </div>
                   <input
                     type="range"
@@ -384,18 +376,53 @@ export default function Learn() {
                     max="100"
                     value={progress}
                     onChange={handleProgressChange}
-                    className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer"
+                    className="w-full h-2 bg-purple-700/50 rounded-lg appearance-none cursor-pointer"
                   />
                 </div>
                 
                 {/* Content */}
-                <div className="mb-6" dangerouslySetInnerHTML={{ __html: currentLesson.content }} />
+                <div className="mb-8" dangerouslySetInnerHTML={{ __html: currentLesson.content.replace(/<h3/g, '<h3 class="text-xl font-semibold text-purple-100 mb-3"').replace(/<h4/g, '<h4 class="text-lg font-medium text-purple-200 mb-2"').replace(/<p/g, '<p class="text-purple-200 mb-4"').replace(/<ul/g, '<ul class="list-disc pl-5 mb-4"').replace(/<li/g, '<li class="text-purple-200 mb-1"').replace(/<pre/g, '<pre class="bg-purple-900/50 p-4 rounded-md mb-4"').replace(/<code/g, '<code class="text-purple-100 font-mono"') }} />
+                
+                {/* Code Editor */}
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold text-purple-100 mb-3">编程环境</h3>
+                  <div className="bg-purple-900/50 rounded-md overflow-hidden border border-purple-500/30">
+                    <div className="flex items-center justify-between px-4 py-2 bg-purple-800/50">
+                      <div className="flex space-x-2">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      </div>
+                      <span className="text-sm text-purple-200">Python 3.9</span>
+                    </div>
+                    <textarea
+                      value={code}
+                      onChange={handleCodeChange}
+                      className="w-full p-4 bg-transparent text-purple-100 font-mono resize-none min-h-[200px]"
+                      placeholder="在此输入Python代码..."
+                    ></textarea>
+                    <div className="px-4 py-2 bg-purple-800/50 flex justify-end">
+                      <button
+                        onClick={runCode}
+                        className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500 transition-colors"
+                      >
+                        运行代码
+                      </button>
+                    </div>
+                  </div>
+                  {output && (
+                    <div className="mt-4 bg-purple-900/50 rounded-md p-4 border border-purple-500/30">
+                      <h4 className="text-sm font-medium text-purple-200 mb-2">输出结果：</h4>
+                      <pre className="text-purple-100 font-mono whitespace-pre-wrap">{output}</pre>
+                    </div>
+                  )}
+                </div>
                 
                 {/* Actions */}
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                   <button
                     onClick={handleMarkComplete}
-                    className={`px-4 py-2 rounded-md transition-colors ${completed ? 'bg-purple-200 text-purple-700' : 'bg-purple-600 text-white'}`}
+                    className={`px-4 py-2 rounded-md transition-colors ${completed ? 'bg-purple-600/50 text-purple-200' : 'bg-purple-600 text-white'}`}
                   >
                     {completed ? '已完成' : '标记为完成'}
                   </button>
@@ -403,7 +430,7 @@ export default function Learn() {
                     {currentLessonId > 1 && (
                       <a 
                         href={`/learn/${currentCourseId}/${currentLessonId - 1}`}
-                        className="px-4 py-2 bg-purple-200 text-purple-700 rounded-md hover:bg-purple-300 transition-colors"
+                        className="px-4 py-2 bg-purple-700/50 text-purple-100 rounded-md hover:bg-purple-600/50 transition-colors"
                       >
                         上一课
                       </a>

@@ -13,12 +13,12 @@ export default function Courses() {
   })
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">课程中心</h1>
+        <h1 className="text-3xl font-bold text-center text-purple-100 mb-8">课程中心</h1>
         
         {/* Search and Filter */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+        <div className="bg-white/10 backdrop-blur-lg p-6 rounded-lg shadow-lg border border-purple-500/30 mb-8">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <input
@@ -26,14 +26,15 @@ export default function Courses() {
                 placeholder="搜索课程..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 bg-purple-900/50 border border-purple-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"
+                placeholderTextColor="#a78bfa"
               />
             </div>
             <div className="w-full md:w-48">
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 bg-purple-900/50 border border-purple-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"
               >
                 <option value="all">所有难度</option>
                 <option value="初级">初级</option>
@@ -47,7 +48,7 @@ export default function Courses() {
         {/* Course List */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCourses.map((course) => (
-            <div key={course.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div key={course.id} className="bg-white/10 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden border border-purple-500/30 hover:bg-white/15 transition-all transform hover:-translate-y-1">
               <div className="h-48 overflow-hidden">
                 <img 
                   src={course.cover_image} 
@@ -57,16 +58,16 @@ export default function Courses() {
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-center mb-2">
-                  <span className={`px-2 py-1 text-xs rounded-full ${course.difficulty === '初级' ? 'bg-green-100 text-green-800' : course.difficulty === '中级' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'}`}>
+                  <span className={`px-2 py-1 text-xs rounded-full ${course.difficulty === '初级' ? 'bg-green-900/50 text-green-200' : course.difficulty === '中级' ? 'bg-blue-900/50 text-blue-200' : 'bg-purple-900/50 text-purple-200'}`}>
                     {course.difficulty}
                   </span>
-                  <span className="text-sm text-gray-600">{course.duration} 小时</span>
+                  <span className="text-sm text-purple-300">{course.duration} 小时</span>
                 </div>
-                <h3 className="font-semibold text-gray-800 mb-2">{course.title}</h3>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-2">{course.description}</p>
+                <h3 className="font-semibold text-purple-100 mb-2">{course.title}</h3>
+                <p className="text-sm text-purple-300 mb-4 line-clamp-2">{course.description}</p>
                 <a 
                   href={`/courses/${course.id}`} 
-                  className="block w-full py-2 bg-blue-600 text-white text-center rounded-md hover:bg-blue-700 transition-colors"
+                  className="block w-full py-2 bg-purple-600 text-white text-center rounded-md hover:bg-purple-500 transition-colors"
                 >
                   查看详情
                 </a>
@@ -78,7 +79,7 @@ export default function Courses() {
         {/* No Results */}
         {filteredCourses.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-600">没有找到符合条件的课程</p>
+            <p className="text-purple-300">没有找到符合条件的课程</p>
           </div>
         )}
       </div>
