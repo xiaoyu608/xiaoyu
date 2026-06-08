@@ -451,7 +451,7 @@ export default function TrainingProjects() {
       {/* Project Detail Modal */}
       {selectedProject && (
         <div 
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
           onClick={() => setSelectedProject(null)}
         >
           <div 
