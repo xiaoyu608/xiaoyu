@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useAuth } from '../lib/auth'
 
 const trainingProjects = [
   {
@@ -15,8 +14,22 @@ const trainingProjects = [
       '学习特征工程方法',
       '构建预测模型并评估'
     ],
-    completed: 456,
-    rating: 4.8
+    content: `<h3>项目简介</h3>
+<p>本项目将引导您使用机器学习技术构建一个电影评分预测系统。通过分析历史电影数据，您将学会如何提取特征、训练模型，并评估预测效果。</p>
+<h4>项目目标</h4>
+<ul>
+<li>理解数据预处理的重要性</li>
+<li>掌握特征工程方法</li>
+<li>学会使用Scikit-learn构建回归模型</li>
+<li>掌握模型评估指标</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>数据清洗与预处理</li>
+<li>特征选择与转换</li>
+<li>线性回归与正则化</li>
+<li>模型评估与调优</li>
+</ul>`
   },
   {
     id: 2,
@@ -31,8 +44,21 @@ const trainingProjects = [
       '多维度数据可视化',
       '图表美化和交互'
     ],
-    completed: 523,
-    rating: 4.9
+    content: `<h3>项目简介</h3>
+<p>本项目将带您探索天气数据分析的全过程。您将学会如何处理时间序列数据，并使用Matplotlib和Seaborn创建专业的数据可视化图表。</p>
+<h4>项目目标</h4>
+<ul>
+<li>掌握时间序列数据处理</li>
+<li>学会创建各种类型的图表</li>
+<li>掌握图表美化技巧</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>Pandas时间序列处理</li>
+<li>Matplotlib基础图表</li>
+<li>Seaborn高级可视化</li>
+<li>图表样式与配色</li>
+</ul>`
   },
   {
     id: 3,
@@ -47,8 +73,21 @@ const trainingProjects = [
       '相关性分析方法',
       '数据报告撰写'
     ],
-    completed: 612,
-    rating: 4.7
+    content: `<h3>项目简介</h3>
+<p>本项目将引导您使用Python进行学生成绩数据分析。通过实际案例，您将学会如何进行描述性统计分析，并撰写专业的数据报告。</p>
+<h4>项目目标</h4>
+<ul>
+<li>掌握描述性统计分析方法</li>
+<li>学会相关性分析</li>
+<li>能够撰写专业数据报告</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>NumPy数值计算</li>
+<li>Pandas数据处理</li>
+<li>统计指标计算</li>
+<li>数据报告撰写</li>
+</ul>`
   },
   {
     id: 4,
@@ -63,8 +102,21 @@ const trainingProjects = [
       '热销商品分析',
       '经营策略建议'
     ],
-    completed: 389,
-    rating: 4.6
+    content: `<h3>项目简介</h3>
+<p>本项目将使用Apriori算法进行餐厅订单数据分析，发现菜品之间的关联规则，为餐厅经营决策提供数据支持。</p>
+<h4>项目目标</h4>
+<ul>
+<li>理解关联规则挖掘原理</li>
+<li>掌握Apriori算法实现</li>
+<li>学会分析业务数据</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>Apriori算法原理</li>
+<li>频繁项集挖掘</li>
+<li>关联规则生成</li>
+<li>业务策略分析</li>
+</ul>`
   },
   {
     id: 5,
@@ -79,8 +131,21 @@ const trainingProjects = [
       '聚类算法应用',
       '标签体系构建'
     ],
-    completed: 267,
-    rating: 4.9
+    content: `<h3>项目简介</h3>
+<p>本项目将引导您构建电商用户画像系统。通过聚类分析，您将学会如何将用户分组，并构建标签体系，为精准营销提供支持。</p>
+<h4>项目目标</h4>
+<ul>
+<li>掌握用户行为数据分析</li>
+<li>学会聚类算法应用</li>
+<li>构建用户标签体系</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>K-Means聚类算法</li>
+<li>用户行为分析</li>
+<li>标签体系设计</li>
+<li>画像应用场景</li>
+</ul>`
   },
   {
     id: 6,
@@ -95,8 +160,21 @@ const trainingProjects = [
       '付费转化漏斗',
       'AB测试方法'
     ],
-    completed: 334,
-    rating: 4.7
+    content: `<h3>项目简介</h3>
+<p>本项目将带您深入分析游戏玩家行为数据。您将学会如何分析玩家留存率、构建转化漏斗，并设计AB测试方案。</p>
+<h4>项目目标</h4>
+<ul>
+<li>掌握玩家行为分析方法</li>
+<li>学会构建转化漏斗</li>
+<li>理解AB测试原理</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>留存率计算与分析</li>
+<li>漏斗分析方法</li>
+<li>AB测试设计</li>
+<li>数据驱动决策</li>
+</ul>`
   },
   {
     id: 7,
@@ -111,8 +189,21 @@ const trainingProjects = [
       '降维可视化技术',
       '音乐数据库操作'
     ],
-    completed: 198,
-    rating: 4.8
+    content: `<h3>项目简介</h3>
+<p>本项目将探索音乐数据科学的奥秘。您将学会如何提取音频特征、使用降维技术进行数据可视化，并分析不同音乐风格的特征。</p>
+<h4>项目目标</h4>
+<ul>
+<li>掌握音频特征提取方法</li>
+<li>学会降维分析技术</li>
+<li>理解音乐风格特征</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>MFCC特征提取</li>
+<li>PCA降维分析</li>
+<li>t-SNE可视化</li>
+<li>音乐风格分类</li>
+</ul>`
   },
   {
     id: 8,
@@ -127,8 +218,21 @@ const trainingProjects = [
       '协同过滤实现',
       '推荐效果评估'
     ],
-    completed: 289,
-    rating: 4.6
+    content: `<h3>项目简介</h3>
+<p>本项目将引导您构建一个图书推荐系统。您将学会协同过滤算法的原理和实现，以及如何评估推荐效果。</p>
+<h4>项目目标</h4>
+<ul>
+<li>理解推荐系统原理</li>
+<li>掌握协同过滤算法</li>
+<li>学会评估推荐效果</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>基于用户的协同过滤</li>
+<li>基于物品的协同过滤</li>
+<li>相似度计算方法</li>
+<li>推荐效果评估指标</li>
+</ul>`
   },
   {
     id: 9,
@@ -143,8 +247,21 @@ const trainingProjects = [
       '污染趋势分析',
       '地理数据可视化'
     ],
-    completed: 445,
-    rating: 4.8
+    content: `<h3>项目简介</h3>
+<p>本项目将引导您分析空气质量数据。您将学会如何获取环境数据、分析污染趋势，并创建地理可视化图表。</p>
+<h4>项目目标</h4>
+<ul>
+<li>掌握环境数据获取方法</li>
+<li>学会时序分析技术</li>
+<li>创建地理可视化图表</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>API数据获取</li>
+<li>时间序列分析</li>
+<li>地理数据可视化</li>
+<li>趋势预测方法</li>
+</ul>`
   },
   {
     id: 10,
@@ -159,13 +276,25 @@ const trainingProjects = [
       '风险因素识别',
       '空间统计分析'
     ],
-    completed: 223,
-    rating: 4.7
+    content: `<h3>项目简介</h3>
+<p>本项目将深入分析交通事故数据。您将学会如何融合多源数据、识别风险因素，并进行空间统计分析。</p>
+<h4>项目目标</h4>
+<ul>
+<li>掌握多源数据融合方法</li>
+<li>学会风险因素识别</li>
+<li>理解空间统计分析</li>
+</ul>
+<h4>技术要点</h4>
+<ul>
+<li>数据融合技术</li>
+<li>分类算法应用</li>
+<li>空间分析方法</li>
+<li>风险评估模型</li>
+</ul>`
   }
 ]
 
 export default function TrainingProjects() {
-  const { user } = useAuth()
   const [selectedProject, setSelectedProject] = useState<typeof trainingProjects[0] | null>(null)
   const [filterDifficulty, setFilterDifficulty] = useState('all')
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
@@ -177,13 +306,13 @@ export default function TrainingProjects() {
   const getDifficultyStyle = (difficulty: string) => {
     switch(difficulty) {
       case '初级': 
-        return { bg: 'from-emerald-500 to-teal-500', text: 'text-white', border: 'border-emerald-400/50' }
+        return { bg: 'from-emerald-500 to-teal-500', text: 'text-white', badge: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' }
       case '中级': 
-        return { bg: 'from-blue-500 to-indigo-500', text: 'text-white', border: 'border-blue-400/50' }
+        return { bg: 'from-blue-500 to-indigo-500', text: 'text-white', badge: 'bg-blue-500/20 text-blue-400 border-blue-500/30' }
       case '高级': 
-        return { bg: 'from-violet-500 to-purple-500', text: 'text-white', border: 'border-violet-400/50' }
+        return { bg: 'from-violet-500 to-purple-500', text: 'text-white', badge: 'bg-violet-500/20 text-violet-400 border-violet-500/30' }
       default: 
-        return { bg: 'from-gray-500 to-gray-600', text: 'text-white', border: 'border-gray-400/50' }
+        return { bg: 'from-gray-500 to-gray-600', text: 'text-white', badge: 'bg-gray-500/20 text-gray-400 border-gray-500/30' }
     }
   }
 
@@ -197,8 +326,8 @@ export default function TrainingProjects() {
               <span className="text-xl">🚀</span>
             </div>
             <div>
-              <h1 className="text-lg font-bold text-white">Python学习网站</h1>
-              <p className="text-xs text-slate-400">实训项目</p>
+              <h1 className="text-lg font-bold text-white">Python项目学习网站</h1>
+              <p className="text-xs text-slate-400">专栏学习</p>
             </div>
           </div>
           <nav className="flex items-center gap-4">
@@ -216,23 +345,19 @@ export default function TrainingProjects() {
           <div className="bg-gradient-to-r from-blue-900/50 via-indigo-900/50 to-violet-900/50 backdrop-blur-xl rounded-2xl p-8 border border-blue-500/20">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
               <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-sm">🔥 热门专栏</span>
-                  <span className="px-3 py-1 bg-emerald-600/30 text-emerald-400 rounded-full text-sm">全新上线</span>
-                </div>
                 <h2 className="text-4xl font-bold text-white mb-3">专栏学习</h2>
                 <p className="text-slate-300 max-w-2xl">
-                  10个趣味十足的实训项目，带你从理论走向实践。每个项目都是真实业务场景，让你学以致用，快速成为数据分析达人！
+                  10个精选实训项目，涵盖数据分析、机器学习、可视化等多个领域，助您快速提升技能！
                 </p>
               </div>
               <div className="flex gap-4">
                 <div className="text-center px-6 py-4 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10">
                   <div className="text-3xl font-bold text-blue-400">10</div>
-                  <div className="text-sm text-slate-400">趣味项目</div>
+                  <div className="text-sm text-slate-400">精选项目</div>
                 </div>
                 <div className="text-center px-6 py-4 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10">
-                  <div className="text-3xl font-bold text-cyan-400">100%</div>
-                  <div className="text-sm text-slate-400">实战导向</div>
+                  <div className="text-3xl font-bold text-cyan-400">3</div>
+                  <div className="text-sm text-slate-400">难度等级</div>
                 </div>
               </div>
             </div>
@@ -264,7 +389,7 @@ export default function TrainingProjects() {
 
       {/* Projects Grid */}
       <main className="container mx-auto px-4 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredProjects.map((project, index) => {
             const style = getDifficultyStyle(project.difficulty)
             return (
@@ -273,9 +398,8 @@ export default function TrainingProjects() {
                 onClick={() => setSelectedProject(project)}
                 onMouseEnter={() => setHoveredCard(project.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className={`group relative bg-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden border ${hoveredCard === project.id ? 'border-blue-500/50' : 'border-slate-700/50'} transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/10`}
+                className={`group relative bg-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/10 ${hoveredCard === project.id ? 'border-blue-500/50' : 'border-slate-700/50'}`}
               >
-                {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={project.image} 
@@ -284,37 +408,21 @@ export default function TrainingProjects() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
                   
-                  {/* Difficulty Badge */}
-                  <div className={`absolute top-4 left-4 px-4 py-1.5 rounded-full bg-gradient-to-r ${style.bg} ${style.text} text-sm font-medium shadow-lg`}>
+                  <div className={`absolute top-4 left-4 px-4 py-1.5 rounded-full border ${style.badge} text-sm font-medium`}>
                     {project.difficulty}
                   </div>
                   
-                  {/* Index Badge */}
                   <div className="absolute top-4 right-4 w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center font-bold text-white">
                     {String(index + 1).padStart(2, '0')}
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-slate-400 mb-4 line-clamp-2">{project.description}</p>
                   
-                  {/* Learning Points */}
-                  <div className="mb-4">
-                    <div className="text-sm text-slate-500 mb-2">学习要点</div>
-                    <div className="flex flex-wrap gap-2">
-                      {project.learning.slice(0, 2).map((point, idx) => (
-                        <span key={idx} className="px-2 py-1 bg-blue-600/20 text-blue-300 text-xs rounded-full">
-                          {point}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
                       <span key={tag} className="px-3 py-1 bg-slate-700/50 text-slate-300 text-xs rounded-full">
@@ -323,28 +431,16 @@ export default function TrainingProjects() {
                     ))}
                   </div>
 
-                  {/* Stats */}
                   <div className="flex justify-between items-center pt-4 border-t border-slate-700/50">
                     <div className="flex items-center gap-1 text-slate-400">
                       <span>⏱️</span> 
                       <span className="text-sm">{project.duration}小时</span>
                     </div>
-                    <div className="flex items-center gap-1 text-slate-400">
-                      <span>👥</span>
-                      <span className="text-sm">{project.completed}人已学</span>
-                    </div>
-                    <div className="flex items-center gap-1 text-yellow-400">
-                      <span>⭐</span>
-                      <span className="text-sm font-medium">{project.rating}</span>
+                    <div className="flex items-center gap-1 text-blue-400">
+                      <span>📚</span>
+                      <span className="text-sm">开始学习 →</span>
                     </div>
                   </div>
-                </div>
-
-                {/* Hover Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/50 to-transparent flex items-end justify-center pb-6 transition-opacity duration-300 ${hoveredCard === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                  <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:from-blue-500 hover:to-cyan-400 transition-all shadow-lg shadow-blue-500/30">
-                    开始学习 →
-                  </button>
                 </div>
               </div>
             )
@@ -359,10 +455,9 @@ export default function TrainingProjects() {
           onClick={() => setSelectedProject(null)}
         >
           <div 
-            className="bg-slate-800/95 backdrop-blur-xl rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-slate-700/50"
+            className="bg-slate-800/95 backdrop-blur-xl rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-slate-700/50"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header Image */}
             <div className="relative h-64">
               <img 
                 src={selectedProject.image} 
@@ -376,40 +471,30 @@ export default function TrainingProjects() {
               >
                 ✕
               </button>
-              <div className={`absolute bottom-4 left-6 px-4 py-2 rounded-full bg-gradient-to-r ${getDifficultyStyle(selectedProject.difficulty).bg} ${getDifficultyStyle(selectedProject.difficulty).text} font-medium`}>
+              <div className={`absolute bottom-4 left-6 px-4 py-2 rounded-full border ${getDifficultyStyle(selectedProject.difficulty).badge} font-medium`}>
                 {selectedProject.difficulty}
               </div>
             </div>
 
-            {/* Modal Content */}
             <div className="p-8">
-              <h2 className="text-3xl font-bold text-white mb-3">{selectedProject.title}</h2>
-              <p className="text-slate-300 mb-6">{selectedProject.description}</p>
-
-              {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-blue-900/30 rounded-xl p-4 text-center border border-blue-500/30">
-                  <div className="text-2xl font-bold text-blue-400">{selectedProject.duration}</div>
+              <div className="flex items-start justify-between mb-6">
+                <div>
+                  <h2 className="text-3xl font-bold text-white mb-2">{selectedProject.title}</h2>
+                  <p className="text-slate-300">{selectedProject.description}</p>
+                </div>
+                <div className="text-right">
+                  <div className="text-2xl font-bold text-blue-400">{selectedProject.duration}h</div>
                   <div className="text-sm text-slate-400">学习时长</div>
-                </div>
-                <div className="bg-cyan-900/30 rounded-xl p-4 text-center border border-cyan-500/30">
-                  <div className="text-2xl font-bold text-cyan-400">{selectedProject.completed}</div>
-                  <div className="text-sm text-slate-400">已学习人数</div>
-                </div>
-                <div className="bg-yellow-900/30 rounded-xl p-4 text-center border border-yellow-500/30">
-                  <div className="text-2xl font-bold text-yellow-400">{selectedProject.rating}</div>
-                  <div className="text-sm text-slate-400">项目评分</div>
                 </div>
               </div>
 
-              {/* Learning Points */}
               <div className="mb-6">
                 <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                  <span>📚</span> 你将学到
+                  <span>📚</span> 学习要点
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {selectedProject.learning.map((point, idx) => (
-                    <div key={idx} className="bg-slate-700/30 rounded-xl p-4 border border-slate-600/30">
+                    <div key={idx} className="bg-blue-600/20 rounded-xl p-4 border border-blue-500/30">
                       <div className="text-blue-400 font-medium mb-2">{idx + 1}</div>
                       <p className="text-slate-300 text-sm">{point}</p>
                     </div>
@@ -417,27 +502,29 @@ export default function TrainingProjects() {
                 </div>
               </div>
 
-              {/* Tech Stack */}
-              <div className="mb-8">
+              <div className="mb-6">
                 <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
                   <span>🛠️</span> 技术栈
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {selectedProject.tags.map((tag) => (
-                    <span key={tag} className="px-4 py-2 bg-blue-600/30 text-blue-300 rounded-lg border border-blue-500/30">
+                    <span key={tag} className="px-4 py-2 bg-slate-700/50 text-slate-300 rounded-lg border border-slate-600/50">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              <div className="mb-8 bg-slate-700/30 rounded-xl p-6 border border-slate-600/30">
+                <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                  <span>📖</span> 项目详情
+                </h3>
+                <div dangerouslySetInnerHTML={{ __html: selectedProject.content.replace(/<h3/g, '<h3 class="text-lg font-semibold text-white mb-3"').replace(/<h4/g, '<h4 class="text-base font-medium text-blue-300 mb-2"').replace(/<p/g, '<p class="text-slate-300 mb-4"').replace(/<ul/g, '<ul class="list-disc pl-5 mb-4"').replace(/<li/g, '<li class="text-slate-300 mb-1"') }} />
+              </div>
+
               <div className="flex gap-4">
                 <button 
                   className="flex-1 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:from-blue-500 hover:to-cyan-400 transition-all shadow-lg shadow-blue-500/30"
-                  onClick={() => {
-                    alert('开始学习 ' + selectedProject.title)
-                  }}
                 >
                   开始学习
                 </button>
