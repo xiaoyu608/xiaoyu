@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../lib/auth'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 const practiceProjects = [
   {
@@ -327,6 +328,8 @@ export default function PracticeCenter() {
           </div>
         </div>
       )}
+
+      <Footer />
     </div>
   )
 }

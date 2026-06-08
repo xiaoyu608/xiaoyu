@@ -1,5 +1,6 @@
 import { useAuth } from '../lib/auth'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 export default function Home() {
   const { user, signOut } = useAuth()
@@ -23,13 +24,19 @@ export default function Home() {
       {/* Navigation */}
       <nav className="bg-slate-900/80 backdrop-blur-xl shadow-lg fixed w-full z-50 border-b border-slate-700/50">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-white">Python学习网站</h1>
-          <div className="flex items-center space-x-6">
-            <a href="/" className="text-slate-300 hover:text-white transition-colors">首页</a>
-            <a href="/courses" className="text-slate-300 hover:text-white transition-colors">课程</a>
-            <a href="/training-projects" className="text-slate-300 hover:text-white transition-colors">专栏学习</a>
-            <a href="/practice-center" className="text-slate-300 hover:text-white transition-colors">实战中心</a>
-            <a href="/achievements" className="text-slate-300 hover:text-white transition-colors">成就</a>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
+              <span className="text-xl">🐍</span>
+            </div>
+            <div>
+              <h1 className="text-lg font-bold text-white">Python学习网站</h1>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <a href="/" className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg">首页</a>
+            <a href="/courses" className="px-4 py-2 bg-slate-700/50 text-slate-300 hover:text-white hover:bg-slate-600/50 rounded-lg transition-colors">课程</a>
+            <a href="/training-projects" className="px-4 py-2 bg-slate-700/50 text-slate-300 hover:text-white hover:bg-slate-600/50 rounded-lg transition-colors">专栏学习</a>
+            <a href="/practice-center" className="px-4 py-2 bg-slate-700/50 text-slate-300 hover:text-white hover:bg-slate-600/50 rounded-lg transition-colors">实战中心</a>
             {user ? (
               <>
                 <a href="/profile" className="text-slate-300 hover:text-white transition-colors">个人中心</a>
@@ -254,16 +261,14 @@ export default function Home() {
             <div className="text-2xl mb-1">🚀</div>
             <span className="text-xs">专栏</span>
           </a>
-          <a href="/achievements" className="flex flex-col items-center text-slate-300 hover:text-blue-400 transition-colors">
-            <div className="text-2xl mb-1">🏆</div>
-            <span className="text-xs">成就</span>
-          </a>
           <a href="/profile" className="flex flex-col items-center text-slate-300 hover:text-blue-400 transition-colors">
             <div className="text-2xl mb-1">👤</div>
             <span className="text-xs">我的</span>
           </a>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

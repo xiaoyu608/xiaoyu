@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 const trainingProjects = [
   {
@@ -252,7 +253,7 @@ export default function TrainingProjects() {
           {filteredProjects.map((project, index) => (
             <div 
               key={project.id}
-              className="bg-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300"
+              className="bg-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-blue-500/50 cursor-pointer"
             >
               <div className="relative h-48 overflow-hidden">
                 <img 
@@ -272,12 +273,12 @@ export default function TrainingProjects() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                <h3 className="text-xl font-bold text-white mb-2 hover:text-blue-400 hover:underline underline-offset-2 cursor-pointer">{project.title}</h3>
                 <p className="text-slate-400 mb-4 line-clamp-2">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag: string) => (
-                    <span key={tag} className="px-3 py-1 bg-slate-700/50 text-slate-300 text-xs rounded-full">
+                    <span key={tag} className="px-3 py-1 bg-slate-700/50 text-slate-300 text-xs rounded-full hover:bg-slate-600/50 hover:text-white cursor-pointer">
                       {tag}
                     </span>
                   ))}
@@ -290,7 +291,7 @@ export default function TrainingProjects() {
                   </div>
                   <button
                     onClick={() => openProject(project)}
-                    className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg hover:from-blue-500 hover:to-cyan-400 transition-all text-sm font-medium"
+                    className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg hover:from-blue-500 hover:to-cyan-400 text-sm font-medium"
                   >
                     查看详情
                   </button>
@@ -402,6 +403,8 @@ export default function TrainingProjects() {
           </div>
         </div>
       )}
+
+      <Footer />
     </div>
   )
 }

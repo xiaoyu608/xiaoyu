@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { courses } from '../data/mockData'
+import Footer from '../components/Footer'
 
 export default function Courses() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -117,6 +118,8 @@ export default function Courses() {
           </div>
         )}
       </div>
+
+      <Footer />
     </div>
   )
 }

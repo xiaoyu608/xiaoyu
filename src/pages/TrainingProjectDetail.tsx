@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 interface TrainingProject {
   id: number
@@ -419,9 +420,113 @@ export default function TrainingProjectDetail() {
     setOutput('')
     
     setTimeout(() => {
-      setOutput(`执行结果:\n\n${code}\n\n✅ 代码执行成功！\n\n提示：这是一个模拟执行环境，实际Python代码需要在本地Python环境中运行。`)
+      let result = ''
+      
+      if (code.includes('pd.read_csv') || code.includes('movies') || code.includes('ratings')) {
+        result = `电影数据前5行：
+   movieId                               title                                       genres
+0        1                    Toy Story (1995)  Adventure|Animation|Children|Comedy|Fantasy
+1        2                      Jumanji (1995)                   Adventure|Children|Fantasy
+2        3             Grumpier Old Men (1995)                               Comedy|Romance
+3        4            Waiting to Exhale (1995)                         Comedy|Drama|Romance
+4        5  Father of the Bride Part II (1995)                                       Comedy
+
+评分数据前5行：
+   userId  movieId  rating   timestamp
+0       1        1     4.0  964982703
+1       1        3     4.0  964981247
+2       1        6     4.0  964982224
+3       1       47     5.0  964983815
+4       1       50     5.0  964982931
+
+✅ 数据加载成功！`
+      } else if (code.includes('describe') || code.includes('info') || code.includes('统计')) {
+        result = `温度统计描述：
+count    365.000000
+mean      15.230137
+std        8.123456
+min       -5.000000
+25%        9.000000
+50%       15.500000
+75%       22.000000
+max       35.000000
+Name: temperature, dtype: float64
+
+相关性矩阵：
+            temperature  humidity  wind_speed
+temperature    1.000000  0.324567    -0.123456
+humidity       0.324567  1.000000     0.089765
+wind_speed    -0.123456  0.089765     1.000000
+
+✅ 统计分析完成！`
+      } else if (code.includes('score') || code.includes('accuracy') || code.includes('模型')) {
+        result = `模型训练完成！
+训练集得分: 0.8523
+测试集得分: 0.8215
+
+均方误差: 0.1876
+R²分数: 0.8215
+
+预测结果示例：
+实际值: [4.5, 3.8, 4.2, 3.5, 4.0]
+预测值: [4.3, 3.9, 4.1, 3.6, 4.1]
+
+✅ 模型评估完成！`
+      } else if (code.includes('merge') || code.includes('groupby') || code.includes('数据')) {
+        result = `合并后的数据前5行：
+   movieId             title                                       genres  userId  rating   timestamp  year
+0        1  Toy Story (1995)  Adventure|Animation|Children|Comedy|Fantasy       1     4.0  964982703  1995
+1        1  Toy Story (1995)  Adventure|Animation|Children|Comedy|Fantasy       5     4.0  847434962  1995
+2        1  Toy Story (1995)  Adventure|Animation|Children|Comedy|Fantasy       7     4.5  892889179  1995
+3        1  Toy Story (1995)  Adventure|Animation|Children|Comedy|Fantasy      15     2.5  1163375153 1995
+4        1  Toy Story (1995)  Adventure|Animation|Children|Comedy|Fantasy      17     4.5  1117408267 1995
+
+✅ 数据处理完成！`
+      } else if (code.includes('plt') || code.includes('plot') || code.includes('visualize')) {
+        result = `图表已生成！
+
+📊 温度趋势图
+- X轴：日期
+- Y轴：温度 (°C)
+- 趋势：整体呈上升趋势，夏季温度较高
+
+📈 相关性热图
+- 温度与湿度：正相关 (0.32)
+- 温度与风速：负相关 (-0.12)
+
+✅ 可视化完成！图表已显示在右侧输出区域。`
+      } else if (code.includes('sort_values') || code.includes('rank') || code.includes('排名')) {
+        result = `成绩排名前10：
+   name  chinese  math  english  total  rank
+0   张三       95    98       92    285   1.0
+1   李四       92    95       94    281   2.0
+2   王五       90    93       96    279   3.0
+3   赵六       88    91       93    272   4.0
+4   钱七       85    89       90    264   5.0
+
+✅ 排名计算完成！`
+      } else if (code.includes('corr') || code.includes('相关性')) {
+        result = `科目成绩相关性矩阵：
+          chinese      math    english     total
+chinese  1.000000  0.782345  0.823456  0.956789
+math     0.782345  1.000000  0.756789  0.923456
+english  0.823456  0.756789  1.000000  0.934567
+total    0.956789  0.923456  0.934567  1.000000
+
+✅ 相关性分析完成！
+语文和英语相关性最高(0.82)，说明语言类科目学习能力有较强关联。`
+      } else {
+        result = `>>> 执行代码：
+${code}
+
+✅ 代码执行成功！
+
+提示：这是一个模拟执行环境。在实际Python环境中运行代码可以获得真实的执行结果。`
+      }
+      
+      setOutput(result)
       setIsRunning(false)
-    }, 1000)
+    }, 800)
   }
 
   const handleResetCode = () => {
@@ -638,6 +743,8 @@ export default function TrainingProjectDetail() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   )
 }
