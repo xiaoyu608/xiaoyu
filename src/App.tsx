@@ -9,6 +9,8 @@ import Practice from "./pages/Practice";
 import Assessment from "./pages/Assessment";
 import Achievements from "./pages/Achievements";
 import Profile from "./pages/Profile";
+import PracticeCenter from "./pages/PracticeCenter";
+import TrainingProjects from "./pages/TrainingProjects";
 import SupabaseTest from "./components/SupabaseTest";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./lib/auth";
@@ -25,6 +27,8 @@ export default function App() {
           <Route path="/courses/:id" element={<CourseDetail />} />
           <Route path="/learn/:courseId/:lessonId" element={<Learn />} />
           <Route path="/practice/:courseId" element={<Practice />} />
+          <Route path="/practice-center" element={<PracticeCenter />} />
+          <Route path="/training-projects" element={<TrainingProjects />} />
           <Route path="/assessment/:courseId" element={<Assessment />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/profile" element={<Profile />} />

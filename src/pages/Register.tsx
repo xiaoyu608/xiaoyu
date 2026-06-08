@@ -22,17 +22,23 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
-      <div className="w-full max-w-md p-8 bg-white/10 backdrop-blur-lg rounded-lg shadow-lg border border-purple-500/30">
-        <h1 className="text-2xl font-bold text-center text-purple-100 mb-6">注册</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <div className="w-full max-w-md p-8 bg-slate-800/50 backdrop-blur-xl rounded-xl shadow-lg border border-slate-700/30">
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <span className="text-3xl">📝</span>
+          </div>
+          <h1 className="text-2xl font-bold text-white">注册</h1>
+          <p className="text-slate-400 mt-2">创建您的账号</p>
+        </div>
         {error && (
-          <div className="mb-4 p-3 bg-red-900/30 text-red-300 rounded-md">
+          <div className="mb-4 p-3 bg-red-900/30 text-red-300 rounded-lg">
             {error}
           </div>
         )}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium text-purple-200 mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
               姓名
             </label>
             <input
@@ -40,12 +46,13 @@ export default function Register() {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-2 bg-purple-900/50 border border-purple-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"
+              className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder:text-slate-500"
+              placeholder="请输入姓名"
               required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-purple-200 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
               邮箱
             </label>
             <input
@@ -53,12 +60,13 @@ export default function Register() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 bg-purple-900/50 border border-purple-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"
+              className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder:text-slate-500"
+              placeholder="请输入邮箱"
               required
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-sm font-medium text-purple-200 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
               密码
             </label>
             <input
@@ -66,18 +74,19 @@ export default function Register() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 bg-purple-900/50 border border-purple-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"
+              className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder:text-slate-500"
+              placeholder="请输入密码"
               required
             />
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500 transition-colors"
+            className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg hover:from-blue-500 hover:to-cyan-400 transition-all font-medium"
           >
             注册
           </button>
           <div className="mt-4 text-center">
-            <a href="/login" className="text-purple-300 hover:text-purple-100 transition-colors">
+            <a href="/login" className="text-blue-400 hover:text-blue-300 transition-colors">
               已有账号？点击登录
             </a>
           </div>

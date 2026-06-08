@@ -2700,25 +2700,52 @@ export default function Learn() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+      {/* Header */}
+      <header className="bg-slate-900/80 backdrop-blur-xl border-b border-slate-700/50 sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
+              <span className="text-xl">📖</span>
+            </div>
+            <div>
+              <h1 className="text-lg font-bold text-white">Python学习网站</h1>
+              <p className="text-xs text-slate-400">{course.title}</p>
+            </div>
+          </div>
+          <nav className="flex items-center gap-4">
+            <a href="/" className="text-slate-300 hover:text-white transition-colors">首页</a>
+            <a href="/courses" className="text-slate-300 hover:text-white transition-colors">课程</a>
+            <a href="/practice-center" className="text-slate-300 hover:text-white transition-colors">实战中心</a>
+          </nav>
+        </div>
+      </header>
+
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/4">
-            <div className="bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-4 sticky top-4 border border-purple-500/30">
-              <h2 className="text-lg font-semibold text-purple-100 mb-4">{course.title}</h2>
+            <div className="bg-slate-800/50 backdrop-blur-xl rounded-xl shadow-lg p-4 sticky top-20 border border-slate-700/30">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-blue-600/30 rounded-lg flex items-center justify-center">
+                  <span className="text-lg">📚</span>
+                </div>
+                <div>
+                  <h2 className="text-lg font-semibold text-white">{course.title}</h2>
+                </div>
+              </div>
               <div className="space-y-2">
                 {lessons.map((lesson) => (
                   <a 
                     key={lesson.id} 
                     href={`/learn/${currentCourseId}/${lesson.id}`}
-                    className={`flex items-center p-3 rounded-md transition-colors ${lesson.id === currentLessonId ? 'bg-purple-600/30 border-l-4 border-purple-400' : 'hover:bg-white/5'}`}
+                    className={`flex items-center p-3 rounded-lg transition-all ${lesson.id === currentLessonId ? 'bg-blue-600/30 border-l-4 border-blue-400' : 'hover:bg-slate-700/50'}`}
                   >
-                    <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 bg-white/10">
+                    <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 bg-slate-700/50">
                       {lesson.completed ? '✅' : lesson.type === 'exercise' ? '✏️' : '📖'}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-sm font-medium text-purple-100">{lesson.title}</h3>
-                      <p className="text-xs text-purple-300">{lesson.duration} 分钟</p>
+                      <h3 className="text-sm font-medium text-white">{lesson.title}</h3>
+                      <p className="text-xs text-slate-400">{lesson.duration} 分钟</p>
                     </div>
                   </a>
                 ))}
@@ -2727,14 +2754,19 @@ export default function Learn() {
           </div>
           
           <div className="lg:w-3/4">
-            <div className="bg-white/10 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden border border-purple-500/30">
+            <div className="bg-slate-800/50 backdrop-blur-xl rounded-xl shadow-lg overflow-hidden border border-slate-700/30">
               <div className="p-6">
-                <h1 className="text-2xl font-bold text-purple-100 mb-6">{currentLesson.title}</h1>
+                <div className="flex items-center justify-between mb-6">
+                  <h1 className="text-2xl font-bold text-white">{currentLesson.title}</h1>
+                  <span className={`px-3 py-1 rounded-full text-sm ${lessonInfo.type === 'exercise' ? 'bg-violet-600/30 text-violet-400' : 'bg-blue-600/30 text-blue-400'}`}>
+                    {lessonInfo.type === 'exercise' ? '实战练习' : '课程'}
+                  </span>
+                </div>
                 
                 <div className="mb-6">
                   <div className="flex justify-between mb-2">
-                    <span className="text-sm text-purple-300">学习进度</span>
-                    <span className="text-sm font-medium text-purple-100">{progress}%</span>
+                    <span className="text-sm text-slate-400">学习进度</span>
+                    <span className="text-sm font-medium text-white">{progress}%</span>
                   </div>
                   <input
                     type="range"
@@ -2742,42 +2774,48 @@ export default function Learn() {
                     max="100"
                     value={progress}
                     onChange={handleProgressChange}
-                    className="w-full h-2 bg-purple-700/50 rounded-lg appearance-none cursor-pointer"
+                    className="w-full h-2 bg-slate-700/50 rounded-lg appearance-none cursor-pointer accent-blue-500"
                   />
                 </div>
                 
-                <div className="mb-8" dangerouslySetInnerHTML={{ __html: currentLesson.content.replace(/<h3/g, '<h3 class="text-xl font-semibold text-purple-100 mb-3"').replace(/<h4/g, '<h4 class="text-lg font-medium text-purple-200 mb-2"').replace(/<p/g, '<p class="text-purple-200 mb-4"').replace(/<ul/g, '<ul class="list-disc pl-5 mb-4"').replace(/<li/g, '<li class="text-purple-200 mb-1"').replace(/<pre/g, '<pre class="bg-purple-900/50 p-4 rounded-md mb-4 overflow-x-auto"').replace(/<code/g, '<code class="text-purple-100 font-mono text-sm"') }} />
+                <div className="mb-8" dangerouslySetInnerHTML={{ __html: currentLesson.content.replace(/<h3/g, '<h3 class="text-xl font-semibold text-white mb-3"').replace(/<h4/g, '<h4 class="text-lg font-medium text-blue-300 mb-2"').replace(/<p/g, '<p class="text-slate-300 mb-4"').replace(/<ul/g, '<ul class="list-disc pl-5 mb-4"').replace(/<li/g, '<li class="text-slate-300 mb-1"').replace(/<strong/g, '<strong class="text-blue-400"').replace(/<pre/g, '<pre class="bg-slate-900/50 p-4 rounded-lg mb-4 overflow-x-auto"').replace(/<code/g, '<code class="text-blue-300 font-mono text-sm"') }} />
                 
                 <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-purple-100 mb-3">编程环境</h3>
-                  <div className="bg-purple-900/50 rounded-md overflow-hidden border border-purple-500/30">
-                    <div className="flex items-center justify-between px-4 py-2 bg-purple-800/50">
+                  <h3 className="text-lg font-semibold text-white mb-3">编程环境</h3>
+                  <div className="bg-slate-900/70 rounded-xl overflow-hidden border border-slate-600/50">
+                    <div className="flex items-center justify-between px-4 py-3 bg-slate-800/50">
                       <div className="flex space-x-2">
                         <div className="w-3 h-3 rounded-full bg-red-500"></div>
                         <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                         <div className="w-3 h-3 rounded-full bg-green-500"></div>
                       </div>
-                      <span className="text-sm text-purple-200">Python 3.9</span>
+                      <span className="text-sm text-slate-400">Python 3.9</span>
                     </div>
                     <textarea
                       value={code}
                       onChange={handleCodeChange}
-                      className="w-full p-4 bg-transparent text-purple-100 font-mono resize-none min-h-[200px]"
+                      className="w-full p-4 bg-transparent text-blue-100 font-mono resize-none min-h-[200px] focus:outline-none"
                       placeholder="在此输入Python代码..."
                     ></textarea>
-                    <div className="px-4 py-2 bg-purple-800/50 flex justify-end">
+                    <div className="px-4 py-3 bg-slate-800/50 flex justify-end gap-3">
+                      <button
+                        onClick={() => setCode('')}
+                        className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors"
+                      >
+                        清空
+                      </button>
                       <button
                         onClick={runCode}
-                        className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500 transition-colors"
+                        className="px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg hover:from-blue-500 hover:to-cyan-400 transition-all"
                       >
                         运行代码
                       </button>
                     </div>
                   </div>
                   {output && (
-                    <div className="mt-4 bg-purple-900/50 rounded-md p-4 border border-purple-500/30">
-                      <h4 className="text-sm font-medium text-purple-200 mb-2">输出结果：</h4>
-                      <pre className="text-purple-100 font-mono whitespace-pre-wrap">{output}</pre>
+                    <div className="mt-4 bg-slate-900/50 rounded-xl p-4 border border-slate-600/50">
+                      <h4 className="text-sm font-medium text-blue-400 mb-2">输出结果：</h4>
+                      <pre className="text-slate-200 font-mono whitespace-pre-wrap">{output}</pre>
                     </div>
                   )}
                 </div>
@@ -2785,15 +2823,15 @@ export default function Learn() {
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                   <button
                     onClick={handleMarkComplete}
-                    className={`px-4 py-2 rounded-md transition-colors ${completed ? 'bg-purple-600/50 text-purple-200' : 'bg-purple-600 text-white'}`}
+                    className={`px-4 py-2 rounded-lg transition-colors ${completed ? 'bg-emerald-600/30 text-emerald-400 border border-emerald-500/50' : 'bg-blue-600 text-white hover:bg-blue-500'}`}
                   >
-                    {completed ? '已完成' : '标记为完成'}
+                    {completed ? '✓ 已完成' : '标记为完成'}
                   </button>
                   <div className="flex space-x-4">
                     {currentLessonId > 1 && (
                       <a 
                         href={`/learn/${currentCourseId}/${currentLessonId - 1}`}
-                        className="px-4 py-2 bg-purple-700/50 text-purple-100 rounded-md hover:bg-purple-600/50 transition-colors"
+                        className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors"
                       >
                         上一课
                       </a>
@@ -2801,7 +2839,7 @@ export default function Learn() {
                     {currentLessonId < lessons.length && (
                       <a 
                         href={`/learn/${currentCourseId}/${currentLessonId + 1}`}
-                        className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500 transition-colors"
+                        className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg hover:from-blue-500 hover:to-cyan-400 transition-all"
                       >
                         下一课
                       </a>
