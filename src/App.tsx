@@ -7,7 +7,6 @@ import CourseDetail from "./pages/CourseDetail";
 import Learn from "./pages/Learn";
 import Practice from "./pages/Practice";
 import Assessment from "./pages/Assessment";
-import Achievements from "./pages/Achievements";
 import Profile from "./pages/Profile";
 import PracticeCenter from "./pages/PracticeCenter";
 import TrainingProjects from "./pages/TrainingProjects";
@@ -32,7 +31,7 @@ export default function App() {
           <Route path="/training-projects" element={<TrainingProjects />} />
           <Route path="/training-projects/:id" element={<TrainingProjectDetail />} />
           <Route path="/assessment/:courseId" element={<Assessment />} />
-          <Route path="/achievements" element={<Achievements />} />
+          
           <Route path="/profile" element={<Profile />} />
           <Route path="/test" element={<SupabaseTest />} />
           <Route 

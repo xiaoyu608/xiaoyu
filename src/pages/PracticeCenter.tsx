@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../lib/auth'
+import { useNavigate } from 'react-router-dom'
 
 const practiceProjects = [
   {
@@ -79,6 +80,7 @@ const skillsProgress = [
 
 export default function PracticeCenter() {
   const { user } = useAuth()
+  const navigate = useNavigate()
   const [selectedProject, setSelectedProject] = useState<typeof practiceProjects[0] | null>(null)
   const [filterDifficulty, setFilterDifficulty] = useState('all')
 
@@ -309,6 +311,7 @@ export default function PracticeCenter() {
                   className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-cyan-400 transition-all"
                   onClick={() => {
                     setSelectedProject(null)
+                    navigate(`/training-projects/${selectedProject.id}`)
                   }}
                 >
                   开始挑战

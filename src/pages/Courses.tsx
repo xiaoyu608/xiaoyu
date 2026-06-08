@@ -35,10 +35,11 @@ export default function Courses() {
               <p className="text-xs text-slate-400">课程中心</p>
             </div>
           </div>
-          <nav className="flex items-center gap-4">
-            <a href="/" className="text-slate-300 hover:text-white transition-colors">首页</a>
-            <a href="/practice-center" className="text-slate-300 hover:text-white transition-colors">实战中心</a>
-            <a href="/achievements" className="text-slate-300 hover:text-white transition-colors">成就</a>
+          <nav className="flex items-center gap-2">
+            <a href="/" className="px-4 py-2 bg-slate-700/50 text-slate-300 hover:text-white hover:bg-slate-600/50 rounded-lg transition-colors">首页</a>
+            <a href="/courses" className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg">课程中心</a>
+            <a href="/practice-center" className="px-4 py-2 bg-slate-700/50 text-slate-300 hover:text-white hover:bg-slate-600/50 rounded-lg transition-colors">实战中心</a>
+            <a href="/training-projects" className="px-4 py-2 bg-slate-700/50 text-slate-300 hover:text-white hover:bg-slate-600/50 rounded-lg transition-colors">专栏学习</a>
           </nav>
         </div>
       </header>
