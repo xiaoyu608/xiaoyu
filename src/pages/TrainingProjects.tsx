@@ -249,54 +249,82 @@ export default function TrainingProjects() {
 
       {/* Projects Grid */}
       <main className="container mx-auto px-4 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-8">
           {filteredProjects.map((project, index) => (
-            <div 
-              key={project.id}
-              className="bg-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-blue-500/50 cursor-pointer"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
-                
-                <div className={`absolute top-4 left-4 px-4 py-1.5 rounded-full ${getBadgeClass(project.difficulty)} text-sm font-medium`}>
-                  {project.difficulty}
-                </div>
-                
-                <div className="absolute top-4 right-4 w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center font-bold text-white">
-                  {String(index + 1).padStart(2, '0')}
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 hover:text-blue-400 hover:underline underline-offset-2 cursor-pointer">{project.title}</h3>
-                <p className="text-slate-400 mb-4 line-clamp-2">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag: string) => (
-                    <span key={tag} className="px-3 py-1 bg-slate-700/50 text-slate-300 text-xs rounded-full hover:bg-slate-600/50 hover:text-white cursor-pointer">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex justify-between items-center pt-4 border-t border-slate-700/50">
-                  <div className="flex items-center gap-1 text-slate-400">
-                    <span>⏱️</span> 
-                    <span className="text-sm">{project.duration}小时</span>
+            <div key={project.id}>
+              <div 
+                className="bg-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-blue-500/50 transition-all"
+              >
+                <div className="flex flex-col md:flex-row">
+                  <div className="relative h-64 md:h-auto md:w-80 flex-shrink-0">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-800/80 md:block hidden"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent md:hidden"></div>
+                    
+                    <div className={`absolute top-4 left-4 px-4 py-2 rounded-full ${getBadgeClass(project.difficulty)} text-sm font-semibold`}>
+                      {project.difficulty}
+                    </div>
+                    
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-black/60 backdrop-blur-md rounded-xl flex items-center justify-center font-bold text-white text-lg">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
                   </div>
-                  <button
-                    onClick={() => openProject(project)}
-                    className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg hover:from-blue-500 hover:to-cyan-400 text-sm font-medium"
-                  >
-                    查看详情
-                  </button>
+
+                  <div className="flex-1 p-6 md:p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="text-2xl font-bold text-white hover:text-blue-400 cursor-pointer transition-colors">
+                        {project.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-slate-400">
+                        <span className="text-lg">⏱️</span>
+                        <span className="text-sm font-medium">{project.duration} 小时</span>
+                      </div>
+                    </div>
+                    
+                    <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      {project.tags.map((tag: string) => (
+                        <span 
+                          key={tag} 
+                          className="px-4 py-2 bg-blue-600/20 text-blue-300 text-sm rounded-full border border-blue-500/30 hover:bg-blue-600/30 cursor-pointer transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <div className="flex-1">
+                        <h4 className="text-sm font-medium text-slate-400 mb-2">学习要点</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.learning.map((item: string, idx: number) => (
+                            <span key={idx} className="px-3 py-1.5 bg-slate-700/50 text-slate-300 text-xs rounded-lg">
+                              • {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => openProject(project)}
+                        className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-medium hover:from-blue-500 hover:to-cyan-400 transition-all shadow-lg shadow-blue-500/25"
+                      >
+                        查看详情 →
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
+              
+              {index < filteredProjects.length - 1 && (
+                <div className="section-divider"></div>
+              )}
             </div>
           ))}
         </div>
