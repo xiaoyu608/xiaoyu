@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const trainingProjects = [
   {
@@ -174,6 +175,8 @@ export default function TrainingProjects() {
     }
   }
 
+  const navigate = useNavigate()
+
   const openProject = (project: any) => {
     setSelectedProject(project)
   }
@@ -183,8 +186,8 @@ export default function TrainingProjects() {
   }
 
   const handleStartLearning = () => {
-    alert(`开始学习: ${selectedProject.title}\n\n学习时长: ${selectedProject.duration}小时\n技术栈: ${selectedProject.tags.join(', ')}`)
     closeProject()
+    navigate(`/training-projects/${selectedProject.id}`)
   }
 
   return (
